@@ -1,0 +1,26 @@
+services:
+  pgdb:
+    image: pgvector/pgvector:pg16
+    container_name: pgvector_db
+    restart: "no"
+    environment:
+      POSTGRES_DB: vector_db
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgvector-data:/var/lib/postgresql/data
+  redis_cache:
+    image: redis:7-alpine
+    container_name: redis_cache
+    restart: "no"
+    ports:
+      # This is what allows your Python host='localhost', port=6379 to work!
+      - "6379:6379"
+    command: redis-server --appendonly yes 
+    volumes:
+      - redis-data:/data
+volumes:
+  pgvector-data:
+  redis-data:

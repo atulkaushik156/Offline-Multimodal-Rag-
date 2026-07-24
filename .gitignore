@@ -1,0 +1,37 @@
+# ========================
+# 1. Security (CRITICAL)
+# ========================
+.env
+
+# ========================
+# 2. Python Environments
+# ========================
+myenv/
+venv/
+env/
+
+# ========================
+# 3. Python Cache
+# ========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# ========================
+# 4. Data & Documents
+# ========================
+# Ignore all PDFs and text files you might use for ingestion
+*.pdf
+*.txt
+*.csv
+# (Optional) If you create a data folder later, uncomment the line below:
+# data/
+
+# ========================
+# 5. OS & Editor Files
+# ========================
+.DS_Store
+.vscode/
+.idea/
