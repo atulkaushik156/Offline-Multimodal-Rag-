@@ -64,3 +64,5 @@ Once the FastAPI server is running, you can test everything directly in your bro
 ### Endpoints
 *   **POST `/upload_file`**: Provide the absolute path to your PDF file here. The API will parse it, extract and chunk the text/images/tables, and save the embeddings to the databases.
 *   **POST `/chat`**: Pass your question here. The API will search the databases for relevant context from your PDF and use `llava-phi3` to generate an answer.
+*   
+Note on Security: For the sake of rapid local development, the /upload_file endpoint currently accepts raw local file paths. In a production environment, this would be refactored to use FastAPI's UploadFile class with secure temporary storage to prevent Path Traversal attacks.
